@@ -1,3 +1,11 @@
+/*Sobrescrever codigos para remover outline em botoes*/
+.btn:focus, .btn:active:focus, .btn.active:focus{
+    box-shadow:none !important;
+}
+.accordion-button:focus{
+    box-shadow:none !important;
+}
+/*Codigos Estruturais*/
 .navegacao{
     width:100%;
     height:70px;
@@ -20,14 +28,24 @@
     min-height: 300px;
     font-family: 'Roboto';
 }
+/*Codigos de estilo para o Rodapé*/
 .rodape{
     width:100%;
     background: #C1272D;
-    min-height: 300px;
+    min-height: 100px;
     padding: 20px 10px;
     box-sizing: border-box;
     color:#fff;
 }
+.rodape .linkrodape{
+    color:#fff;
+    text-decoration: none;
+}
+.rodape .linkrodape:hover{
+    background-color: darkred;
+    color:#fff;
+}
+/*Estilos para conteudo das paginas*/
 .titulopagina{
     width:100%;
     padding: 100px 10px;
@@ -39,6 +57,7 @@
     font-family: 'Roboto', sans-serif;
     color:#fff;
 }
+/*Estilos dos cards de produtos*/
 .cardproduto{
     font-family: 'Roboto', sans-serif;
     padding-bottom: 10px;
@@ -47,6 +66,7 @@
     font-weight: 600;
     text-align: center;
     font-size: 1.2em;
+    min-height: 70px;
 }
 .cardproduto .image{
     width: 100%;
@@ -62,6 +82,11 @@
     font-weight: 800;
     font-size: 1.5em;
     text-align: center;
+}
+/*ESTILOS GERAIS DE CORES DE BG*/
+.bg-verde:not(.collapsed){
+    background-color: #D9E021 !important;
+    color: #000 !important;
 }
 /*ESTILOS RAPIDOS PARA FONTE PERSONALIZADA*/
 .font-roboto{font-family: 'Roboto', sans-serif;}

@@ -1,27 +1,20 @@
 
 //Usando JQuery para carregar conteúdo de outras páginas dentro do template (index)
 
-
+//resolver pagina de conteudo no carregamento
 $(document).ready(function(){
-    var parameter = $.urlParam('pagina');
-    console.log(parameter);
-    if(parameter){
-        $('#conteudo').load("/paginas/"+parameter+".html");
+    var pagina = $.urlParam('pagina');
+    console.log(pagina);
+    //Se tem pagina nos parametros, carrega na div conteudo
+    if(pagina){
+        $('#conteudo').load("/paginas/"+pagina+".html");
     }
     else{
         $( "#conteudo" ).load( "/paginas/inicio.html" );
-    }
+    }  
 });
 
-
-$('a').each(function(b,c){     //loop through each a element
-    $(c).on('click',function(){   //add click event listener
-        var link = $(this).attr('data-target');  //get the link from attribute
-        $('#conteudo').load(link);    //load the link's content into container
-    });
-});
-
-
+//funcao que pega o parametro a partir da url
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null) {
@@ -30,18 +23,31 @@ $.urlParam = function(name){
     return decodeURI(results[1]) || 0;
 }
 
-var getUrlParameter = function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
+//Função para mudar conteudo da categoria do catalogo
 
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
+function checar_url_categoria(){
+    var cat = $.urlParam('cat');
+    //se tem categoria no parametro, a pagina é catalogo, carregar categoria referente na div de conteudo do catalogo
+    if(cat){
+        $('#categoria').load("/paginas/"+cat+".html");
+        //Selecionar o radio correspondente no radio groupe
+        $("#btnradio"+cat).prop("checked", true);
     }
-    return false;
-};
+    else{
+        $('#categoria').load("paginas/hortifruti.html");
+    }
+    
+}
+
+function carregar_categoria($param){
+    if($param){
+        $('#categoria').load("/paginas/"+$param+".html");
+    }
+    else{
+        $('#categoria').load("/paginas/hortifruti.html");
+    }
+}
+
+$('#modalhorarios').on('shown.bs.modal', function () {
+    $('#btnmodalhorarios').trigger('focus')
+})

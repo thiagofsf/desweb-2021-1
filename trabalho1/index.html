@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!--Arquivos de Estilo-->
         <link href="assets/css/estilo.css" rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/aeda5607de.js" crossorigin="anonymous"></script>
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!--FONT AWESOME-->
+		<script src="https://kit.fontawesome.com/aeda5607de.js" crossorigin="anonymous"></script>
         <!--Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,56 +19,143 @@
         <!--NAVBAR-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light navegacao fixed-top">
             <div class="container navegacao bg-light">
-              <a class="navbar-brand" href="#"><img src="assets/imagens/logo.png" class="logonav"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html" >Início</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="?pagina=sobre">Sobre Nós</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Categorias
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="?pagina=hortifruti">Hortifruti</a></li>
-                      <li><a class="dropdown-item" href="#">Mercearia</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="?pagina=contato">Contato</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
+              	<a class="navbar-brand" href="index.html"><img src="assets/imagens/logo.png" class="logonav"></a>
+              	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                	<span class="navbar-toggler-icon"></span>
+              	</button>
+              	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  		<li class="nav-item">
+                    		<a class="nav-link" href="index.html">Início</a>
+                  		</li>
+                 		<li class="nav-item">
+                    		<a class="nav-link" href="?pagina=sobre">Sobre Nós</a>
+                  		</li>
+                  		<li class="nav-item dropdown">
+                    		<a class="nav-link dropdown-toggle" href="?pagina=catalogo" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      			Departamentos
+                    		</a>
+                    		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      			<li><a class="dropdown-item" href="?pagina=catalogo&cat=hortifruti">Hortifruti</a></li>
+                      			<li><a class="dropdown-item" href="?pagina=catalogo&cat=mercearia">Mercearia</a></li>
+                    		</ul>
+                  		</li>
+                  		<li class="nav-item">
+                    		<a class="nav-link" href="?pagina=contato">Contato</a>
+                  		</li>
+                	</ul>
+                	<form class="d-flex">
+                  		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  		<button class="btn btn-outline-success" type="submit">Search</button>
+                	</form>
+              	</div>
             </div>
-          </nav>
+        </nav>
 
         <!--Div que carregará o conteúdo dinâmico-->
         <div id="conteudo"></div>
 
         <!--Rodapé-->
         <div class="rodape">
-          <div class="row">
-            <div class="col-12 text-center">©2021 - Todos os Direitos Reservados</div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
-          </div>
+			<div class="container">
+				<div class="row">
+					<hr>
+					<div class="col-md-3 align-self-center"><img class="w-100" style="max-width:100px" src="/assets/imagens/logo.png" /></div>
+					<div class="col-md-6 align-self-center text-center">
+						<div class="btn-group" role="group" aria-label="Basic example">
+						<a type="button" href="?pagina=sobre" class="btn btn-link linkrodape" >Sobre Nós</a>
+						<a type="button" href="?pagina=loja-alcantara" class="btn btn-link linkrodape">Nossa Loja</a>
+						<a type="button" class="btn btn-link linkrodape" data-bs-toggle="modal" data-bs-target="#modalHorarios">Horário de Funcionamento</a>
+						</div>
+					</div>
+					<div class="col-md-3 align-self-center">
+						<div style="text-align: right;">
+							©2021 - Todos os Direitos Reservados
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
 
         <!--Scripts-->
-        <script src="assets/js/jquery-3.6.0.min.js"></script>
-        <script src="assets/js/popper.js"></script>
-        <script src="assets/js/bootstrap.js"></script>
-        <script src="assets/js/script.js"></script>
+        <script src="/assets/js/jquery-3.6.0.min.js"></script>
+        <script src="/assets/js/popper.js"></script>
+        <script src="/assets/js/bootstrap.js"></script>
+        <script src="/assets/js/script.js"></script>
     </body>
+
 </html>
+  
+<!-- Modal Horarios -->
+<div class="modal fade" id="modalHorarios" tabindex="-1" aria-labelledby="modalHorariosLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="modalHorariosLabel">Horarios de Funcionamento</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<ul class="list-group">
+				<li class="list-group-item"><b>Segunda-feira:</b> 7:00hs as 19:00hs</li>
+				<li class="list-group-item"><b>Terça-feira:</b> 7:00hs as 19:00hs</li>
+				<li class="list-group-item"><b>Quarta-feira:</b> 7:00hs as 19:00hs</li>
+				<li class="list-group-item"><b>Quinta-feira:</b> 7:00hs as 19:00hs<br></li>
+				<li class="list-group-item"><b>Sexta-feira:</b> 7:00hs as 19:00hs<br></li>
+				<li class="list-group-item"><b>Sábado:</b> 7:00hs as 19:00hs<br></li>
+				<li class="list-group-item"><b>Domingo:</b> 7:00hs as 12:00hs<br></li>
+			</ul>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+  
+      <div class="mySlides">
+        <div class="numbertext">1 / 4</div>
+        <img src="/assets/imagens/portugas1.jpeg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">2 / 4</div>
+        <img src="/assets/imagens/portugas2.jpeg" style="width:100%">
+      </div>
+  
+      <div class="mySlides">
+        <div class="numbertext">3 / 4</div>
+        <img src="/assets/imagens/portugas3.jpeg" style="width:100%">
+      </div>
+  
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+      <!-- Caption text -->
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+  
+      <!-- Thumbnail image controls -->
+      <div class="column">
+        <img class="demo" src="/assets/imagens/portugas1.jpeg" onclick="currentSlide(1)" alt="Nature">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="/assets/imagens/portugas1.jpeg" onclick="currentSlide(2)" alt="Snow">
+      </div>
+  
+      <div class="column">
+        <img class="demo" src="/assets/imagens/portugas1.jpeg" onclick="currentSlide(3)" alt="Mountains">
+      </div>
+
+    </div>
+  </div>
+
+  
+  
