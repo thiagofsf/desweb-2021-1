@@ -11,8 +11,11 @@
     height:70px;
     z-index:100000;
 }
+.fix-topmobile{
+    height: 50px;
+}
 .logonav{
-    width:170px;
+    width:120px;
 }
 .containerundermenu{
     width:100%;
