@@ -25,7 +25,7 @@
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    padding: 10px 5px;
+    padding: 10px 10px;
     box-sizing: border-box;
     z-index:100;
     min-height: 300px;
@@ -75,6 +75,7 @@
     width: 100%;
     border-radius: 5px;
     background-size: cover;
+    background-position: center;
     height: 200px;
 }
 .cardproduto .preco{
