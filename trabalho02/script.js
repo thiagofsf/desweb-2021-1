@@ -3,7 +3,7 @@ function Produto(nome, preco, departamento, imagem){
     this.preco = preco;
     this.departamento = departamento;
     this.imagem = imagem;
-    //Retornar Preço Formatado
+    //Retornar Preço Formatado - Com mascara, aparecendo o R$ e sempre com 2 casas decimais
     this.getPreco = function() {
         return 'R$'+preco.toFixed(2);
     }
