@@ -1,0 +1,27 @@
+Trabalho 1 - Site Portugas usando Bootstrap
+
+Como temática escolhi um site para um hortifruti e mercearia dos meus pais. 
+Existem itens para venda, e pretendo desenvolver um carrinho posteriormente no curso...
+
+Procurei utilizar tudo o que pude do que foi visto em aula,
+implementei algumas coisas que não vimos,
+
+Dentre ela um sistema de carregamento dinâmico de paginas, para não ficar reescrevendo os
+códigos das páginas.. para isso desenvolvi uma função usando javascript (JQuery).
+
+Por isso é importante ver o site usando o plugin do vscode que o sr indicou: live server
+Ou acessando via servidor web, por isso também disponibilizo o site pelo link:
+http://desweb.tfreitasdesign.com
+
+Algumas classes e componentes do bootstrap que implementei
+(e não lembro de ter visto nas aulas) foram:
+
+- A presença de uma search bar na nav, a intenção é usar para pesquisa de produtos
+posteriormente;
+- Button Group na horizontal no rodapé, contendo 3 botões;
+- Button Group na vertical na página de catálogo (departamentos);
+- List Group em uma modal ao clicar em Horario de Funcionamento no rodapé
+- OffCanvas (bottom) no botão "Siga-nos" presente no rodapé
+- Button Group horizontal também no OffCanvas, contendo os links das redes sociais
+
+Alem disso também usei font awesome para os icones...
