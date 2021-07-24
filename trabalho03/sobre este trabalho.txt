@@ -18,3 +18,5 @@ de likes também)
 Como tem muito script, se torna necessário ver o site usando o plugin do vscode indicado: live server
 O site atualizado com os itens dos trabalhos 1, 2 e 3 também está disponível no meu servidor:
 http://desweb.tfreitasdesign.com
+
+O Trabalho está disponível também no repositório do GitHub: https://github.com/thiagofsf/desweb-2021-1
