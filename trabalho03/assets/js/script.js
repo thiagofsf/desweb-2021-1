@@ -97,6 +97,8 @@ function carregar_destaques(){
         {id: 8, nome: 'Azeitonas', preco: 2.00, departamento: 'Mercearia', imagem: 'azeitona-verde.jpg', like: 3, dislike:0},
         {id: 9, nome: 'Maionese', preco: 3.99, departamento: 'Mercearia', imagem: 'maionese-quero.jpg', like: 1, dislike:0},
         {id: 10, nome: 'Fermento em Pó', preco: 2.99, departamento: 'Mercearia', imagem: 'fermento-d-benta.jpg', like: 5, dislike:2},
+        {id: 11, nome: 'Milho Verde', preco: 20.99, departamento: 'Hortifruti', imagem: 'milho-verde.jpg', like: 5, dislike:2},
+        {id: 12, nome: 'Abacaxi', preco: 2.99, departamento: 'Hortifruti', imagem: 'abacaxi-perola.jpg', like: 5, dislike:2},
     ];
     //Varrer Array e criar array de objetos Produtos
     let produtos = criarProdutosDeLista(arrayObjetos);
