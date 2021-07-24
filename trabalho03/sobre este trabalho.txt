@@ -1,0 +1,20 @@
+Site Portugas usando Bootstrap
+
+Trabalho 3 - Implementando sistema de like/dislike
+
+Para este trabalho foi implementado o sistema de like/dislike na pagina inicial do site,
+Utilizei o trabalho 2 e reimplementei os métodos de modo a carregar os Produtos em Destaque
+Dinamicamente usando script.
+
+Como os cards de produtos foram carregados dinamicamente, criei um campo id no objeto
+e criei atributos id especificos para os span e icons, que foram usados para localizar
+e modificar os objetos e recuperar os dados nos atributos data.
+
+Foi adicionado um novo atributo data-clicked, usado para checkar se um dos botões haviam
+sido acionados (principalmente para implementar o desacionamento prévio, ex: caso a pessoa clique
+em like vai somar 1 ao like, ao clicar em dislike vai automaticamente mudar o icone e reduzir o numero
+de likes também)
+
+Como tem muito script, se torna necessário ver o site usando o plugin do vscode indicado: live server
+O site atualizado com os itens dos trabalhos 1, 2 e 3 também está disponível no meu servidor:
+http://desweb.tfreitasdesign.com
