@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Controle de Fornecedores
+{% endblock %}
+
+{% block corpo %}
+    <div class="titulopagina containerundermenu mb-5" style="background-image: url({% static 'imagens/bg-sobre.jpg'%});">
+        <h1 class="textotitulo">Controle de Fornecedores</h1>
+    </div>
+
+    <div style="width:100%; max-width:800px; min-height: 200px; margin: 10px auto;">
+        <h4>Pesquise um Fornecedor:</h4>
+           <div class="row">
+               <div class="col-md-6">
+                   <a href="{% url 'lista_fornecedores' %}" class='btn btn-danger w-100 text-center'>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="fas fa-th-list" ></i><div style="padding-left: 4px;">Listar Fornecedores</div>
+                        </div>
+                    </a>
+               </div>
+               <div class="col-md-6">
+                   <a href="{% url 'cadastra_fornecedores' %}" class='btn btn-danger w-100 text-center'>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="fas fa-plus-circle mr-2"></i><div style="padding-left: 4px;"> Cadastrar Fornecedor</div>
+                        </div>
+                    </a>
+               </div>
+           </div>
+    </div>
+
+{% endblock %}

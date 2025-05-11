@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    {% if 'fornecedor_id' in request.session %}
+        Editando Fornecedor
+    {% else %}
+        Cadastro de Fornecedor
+    {% endif %}
+{% endblock %}
+
+{% block corpo %}
+    <div class="titulopagina containerundermenu mb-5" style="background-image: url({% static 'imagens/bg-sobre.jpg'%});">
+        <h1 class="textotitulo">
+            {% if 'fornecedor_id' in request.session %}
+                Editar um Fornecedor
+            {% else %}
+                Cadastrar de Fornecedor
+            {% endif %}
+        </h1>
+    </div>
+
+    <div style="width:100%; max-width:800px; min-height: 300px; margin: 0 auto;">
+        <form action="{% url 'cadastra_fornecedores' %}" method="POST" class="pb-4" novalidate>
+            <div class="row mb-2">
+                <div class="col-md-4">
+                    <label for="id_nome">Nome</label>
+                </div>
+                <div class="col-md-8">
+                    {{ form.nome }}
+                    {% if form.nome.errors %}
+                        <div class="alert alert-danger mb-0" role="alert" style="padding-top:2px; padding-bottom: 2px;">
+                            {% for error in form.nome.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-4">
+                    <label for="id_endereco">Endereço</label>
+                </div>
+                <div class="col-md-8">
+                    {{ form.endereco }}
+                    {% if form.endereco.errors %}
+                        <div class="alert alert-danger mb-0" role="alert" style="padding-top:2px; padding-bottom: 2px;">
+                            {% for error in form.endereco.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-4">
+                    <label for="id_telefone">Telefone</label>
+                </div>
+                <div class="col-md-8">
+                    {{ form.telefone }}
+                    {% if form.telefone.errors %}
+                        <div class="alert alert-danger mb-0" role="alert" style="padding-top:2px; padding-bottom: 2px;">
+                            {% for error in form.telefone.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-md-4">
+                    <label for="id_cnpj">CNPJ</label>
+                </div>
+                <div class="col-md-8">
+                    {{ form.cnpj }}
+                    {% if form.cnpj.errors %}
+                        <div class="alert alert-danger mb-0" role="alert" style="padding-top:2px; padding-bottom: 2px;">
+                            {% for error in form.cnpj.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mt-2">
+                {% csrf_token %}
+                <button id="botao" type='submit' class='btn btn-danger'>
+                    <div class="d-flex align-items-center">
+                        {% if 'fornecedor_id' in request.session %}
+                            <i class="fas fa-save mr-2"></i> <div style="padding-left: 4px;"> Alterar</div>
+                        {% else %}
+                            <i class="fas fa-save mr-2"></i> <div style="padding-left: 4px;"> Cadastrar</div>
+                        {% endif %}
+                    </div>
+                </button>
+            </div>
+        </form>
+
+    </div>
+
+{% endblock %}

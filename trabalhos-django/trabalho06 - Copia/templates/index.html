@@ -1,0 +1,36 @@
+{%  extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Portugas Hortifrutti - Página Inicial
+{% endblock %}
+
+{% block corpo %}
+    <div style="padding-top: 100px; width: 100%; max-width: 1000px; margin:0 auto; min-height: 550px">
+        <h1>Cadastro de Produtos</h1>
+        <br>
+        <div id="form">
+
+        </div>
+        <br>
+        <div id="tabela">
+
+        </div>
+        <br><br>
+    </div>
+
+{% endblock %}
+
+{% block domready %}
+    $.get("{% url 'produto:cadastra_produto' %}", function(resposta){
+        $('#form').html(resposta)
+    })
+    $.get("{% url 'produto:lista_produtos' %}", function(resposta){
+        $('#tabela').html(resposta)
+    })
+
+    $('#post-form').on('submit', function(event){
+        event.preventDefault();
+        console.log("form submitted!")  // sanity check
+    })
+{% endblock %}

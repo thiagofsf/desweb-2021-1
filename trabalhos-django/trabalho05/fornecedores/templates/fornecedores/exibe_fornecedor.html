@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Exibir Fornecedor
+{% endblock %}
+
+{% block corpo %}
+    <div class="titulopagina containerundermenu mb-5" style="background-image: url({% static 'imagens/bg-sobre.jpg'%});">
+        <h1 class="textotitulo">Exibe um fornecedor</h1>
+    </div>
+
+    <div style="width:100%; max-width:800px; min-height: 300px; margin: 0 auto;">
+        {% if messages %}
+            {% for message in messages %}
+                <li style="padding-bottom: 7px; padding-top: 7px" class="list-group-item list-group-item-info">
+                {{ message }}
+                </li>
+            {% endfor %}
+        {% endif %}
+        <div class="row">
+            <h3><b>Nome:</b>{{ fornecedor.nome }}</h3>
+            <p><b>Endereço:</b>{{ fornecedor.endereco }}</p>
+            <p><b>Telefone:</b>{{ fornecedor.telefone }}</p>
+            <p><b>CNPJ:</b>{{ fornecedor.cnpj }}</p>
+        </div>
+    </div>
+    {%  if fornecedor.id %}
+    <div style="width:100%; max-width:800px; min-height: 200px; margin: 10px auto;">
+           <div class="row">
+               <div class="col-md-6">
+                   <a href="{% url 'edita_fornecedor' fornecedor.id %}" class='btn btn-danger w-100 text-center'>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="fas fa-edit"></i><div style="padding-left: 4px;">Editar Fornecedor</div>
+                        </div>
+                    </a>
+               </div>
+               <div class="col-md-6">
+                   <form action="{% url 'remove_fornecedor' %}" method="POST">
+                       {% csrf_token %}
+                       <button type="submit" class='btn btn-danger w-100 text-center'>
+                            <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-trash-alt"></i><div style="padding-left: 4px;">Remover Fornecedor</div>
+                            </div>
+                       </button>
+                   </form>
+               </div>
+           </div>
+    </div>
+    {% endif %}
+
+{% endblock %}

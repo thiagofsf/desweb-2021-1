@@ -3,7 +3,7 @@
 
 //resolver pagina de conteudo no carregamento
 $(document).ready(function(){
-    var pagina = $.urlParam('pagina');
+    let pagina = $.urlParam('pagina');
     console.log(pagina);
     //Se tem pagina nos parametros, carrega na div conteudo
     if(pagina){

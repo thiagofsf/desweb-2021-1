@@ -1,0 +1,51 @@
+{%  extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Contato - Portugas Hortifrutti
+{% endblock %}
+
+{% block corpo %}
+
+    <div class="map-example container" style="padding-top: 120px; padding-bottom: 30px;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div id="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.5833375531715!2d-43.011790085449064!3d-22.817897985057094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9990907438fbc9%3A0x656a8d2440adb031!2sR.%20Dr.%20Alfredo%20Backer%2C%20411%20-%20Alcantara%2C%20S%C3%A3o%20Gon%C3%A7alo%20-%20RJ%2C%2024452-001!5e0!3m2!1spt-BR!2sbr!4v1624816637295!5m2!1spt-BR!2sbr" class="w-100" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="heading">
+                    <h3>Portuga's Alcântara</h3>
+                    <div class="rating">
+                        <i class="fa fa-star icon"></i>
+                        <i class="fa fa-star icon"></i>
+                        <i class="fa fa-star icon"></i>
+                        <i class="fa fa-star icon"></i>
+                        <i class="fa fa-star icon"></i>
+                    </div>
+                </div>
+                <div class="info">
+                    <p><b>Endereço:</b> Rua Dr Alfredo Backer, 411 - Alcântara - São Gonçalo</p>
+                    <p>Localizado próximo ao 7° Batalhão e a Academia Alternativa</p>
+                </div>
+                <div class="gallery">
+                    <h4>Fotos</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-fluid image" src="{% static 'imagens/portugas1.jpeg' %}">
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid image" src="{% static 'imagens/portugas2.jpeg' %}">
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid image" src="{% static 'imagens/portugas3.jpeg' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

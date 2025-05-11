@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Arquivos de Estilo - ESTATICOS-->
+    <link href="{% static 'css/estilo.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/aeda5607de.js" crossorigin="anonymous"></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!--TITULO-->
+    <title>
+        {% block titulo %}
+            Portugas - Hortifruti
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block navbar %}
+        <!--NAVBAR-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navegacao fixed-top">
+            <div class="container bg-light">
+              	<a class="navbar-brand" href="{% url "index" %}">Trabalho06</a>
+              	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                	<span class="navbar-toggler-icon"></span>
+              	</button>
+              	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+                	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  		<li class="nav-item">
+                    		<a class="nav-link" href="/">Início</a>
+                  		</li>
+                	</ul>
+              	</div>
+            </div>
+        </nav>
+    {% endblock %}
+
+    {% block corpo %}
+    {% endblock %}
+
+    {% block rodape %}
+        <div class="rodape">
+			<div class="container">
+				<div class="row">
+					<hr>
+					<div class="col-md-3 align-self-center"></div>
+					<div class="col-md-6 align-self-center text-center">
+						<div class="btn-group" role="group" aria-label="Basic example">
+						<a type="button" class="btn btn-link linkrodape" data-bs-toggle="modal" data-bs-target="#modalHorarios">Horário de Funcionamento</a>
+						<a type="button" class="btn btn-link linkrodape" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"	>Siga-nos</a>
+
+					</div>
+					</div>
+					<div class="col-md-3 align-self-center">
+						<div style="text-align: right;">
+							©2021 - Todos os Direitos Reservados
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    {% endblock %}
+
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Siga-nos nas redes sociais</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body small text-center">
+            <p>Estamos nas redes sociais, e em nossos canais oficiais estaremos realizando promoções e descontos exclusivos, siga-nos para ficar por dentro de tudo!</p>
+            <div class="btn-group">
+                <a href="https://www.facebook.com/hortifrutiportugas" target="_blank" class="btn btn-primary"><i class="fab fa-facebook-square"></i> Facebook</a>
+                <a href="https://www.instagram.com/portugashortifruti/" target="blank" class="btn btn-primary"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#" class="btn btn-primary" onclick="alert('Em Breve')">Whatsapp</a>
+            </div>
+        </div>
+    </div>
+    <!--Scripts-->
+    <script src="{% static '/node_modules/jquery/dist/jquery.min.js'%}"></script>
+    <script src="{% static '/js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+
+            {% block domready %}
+
+            {% endblock %}
+
+            $("#lista-produtos").on("click", "input.comprar", function(){
+                this.blur()
+                let botao_comprar = this
+                let form = $(botao_comprar).prev()
+                form.find("input[name='quantidade']").val(1)
+                let url = form.attr('action')
+                let formData = form.serializeArray()
+                $.post(url, formData, function(resposta) {
+                    $(botao_comprar).fadeTo('fast', 0.3, function() {
+                        $(botao_comprar).hide()
+                        form.show()
+                        if (resposta.quantidade === 1)
+                            $("#total-1").text(resposta.quantidade + " item - " + resposta.preco_carrinho)
+                        else
+                            $("#total-1").text(resposta.quantidade + " itens - " + resposta.preco_carrinho)
+                        $("#total-2").text(resposta.preco_carrinho)
+                    })
+                })
+            })
+
+            $("#lista-produtos").on("click", "input.mais", function(){
+                this.blur()
+                var input = $(this).parent().prev()
+                var num = +input.val() + 1
+                if (num < 100) {
+                    input.val(num)
+                    let form = $(this).parent().parent().parent()
+                    let url = form.attr('action')
+                    let formData = form.serializeArray()
+                    $.post(url, formData, function(resposta) {
+                        if (resposta.quantidade === 1)
+                            $("#total-1").text(resposta.quantidade + " item - " + resposta.preco_carrinho)
+                        else
+                            $("#total-1").text(resposta.quantidade + " itens - " + resposta.preco_carrinho)
+                        $("#total-2").text(resposta.preco_carrinho)
+                    })
+                }
+                else {
+                    return
+                }
+            })
+
+            $("#lista-produtos").on("click", "input.menos", function(){
+                this.blur()
+                let botao_menos = this
+                let input = $(botao_menos).parent().next()
+                let num = +input.val() - 1
+                if (num < 0) {
+                    num = 0
+                }
+                input.val(num)
+                let form = $(botao_menos).parent().parent().parent()
+                let botao_comprar = form.next()
+                let url = form.attr('action')
+                let formData = form.serializeArray()
+                $.post(url, formData, function(resposta) {
+                    if (num == 0) {
+                        form.hide()
+                        $(botao_comprar).fadeTo('fast', 1)
+                    }
+                    if (resposta.quantidade === 1)
+                        $("#total-1").text(resposta.quantidade + " item - " + resposta.preco_carrinho)
+                    else
+                        $("#total-1").text(resposta.quantidade + " itens - " + resposta.preco_carrinho)
+                    $("#total-2").text(resposta.preco_carrinho)
+                })
+            })
+        });
+    </script>
+</body>
+</html>
+
+<!-- Modal Horarios -->
+<div class="modal fade" id="modalHorarios" tabindex="-1" aria-labelledby="modalHorariosLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="modalHorariosLabel">Horarios de Funcionamento</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+			<ul class="list-group">
+				<li class="list-group-item"><b>Segunda-feira:</b> 7:00hs as 19:00hs</li>
+				<li class="list-group-item"><b>Terça-feira:</b> 7:00hs as 19:00hs</li>
+				<li class="list-group-item"><b>Quarta-feira:</b> 7:00hs as 19:00hs</li>
+				<li class="list-group-item"><b>Quinta-feira:</b> 7:00hs as 19:00hs<br></li>
+				<li class="list-group-item"><b>Sexta-feira:</b> 7:00hs as 19:00hs<br></li>
+				<li class="list-group-item"><b>Sábado:</b> 7:00hs as 19:00hs<br></li>
+				<li class="list-group-item"><b>Domingo:</b> 7:00hs as 12:00hs<br></li>
+			</ul>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+		</div>
+	  </div>
+	</div>
+</div>
